@@ -6,6 +6,8 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import classes from './home.module.css';
 import CompTable from '../../components/Table/CompTable/CompTable';
 import UserTable from '../../components/Table/UserTable/UserTable';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import walkthrough from '../../components/walkthrough/walkthrough';
 
 
 const home = () => (
@@ -48,10 +50,16 @@ const home = () => (
 
       </Grid>
       <div className={classes.center}>
-        <Fab variant="extended" color="primary" aria-label="Add">
+      
+      <Router>
+      <Link to="/walkthrough">
+      <Fab variant="extended" color="primary" aria-label="Add">
           <NavigationIcon className={classes.extendedIcon} />
-                            Walkthrough
-        </Fab>
+          Walkthrough
+      </Fab>
+      </Link>
+      <Route path="/walkthrough" component={walkthrough} />
+      </Router>
       </div>
       <h1 className={classes.center}>User Rank</h1>
       <div className={classes.center}>
